@@ -42,6 +42,11 @@ module.exports = {
           filename: 'font-[name].[hash:6][ext]'
         }
     }, 
+    {
+      test: /\.js$/,
+     
+      use:['babel-loader']
+  }
     ]
   }
 }
