@@ -1,5 +1,6 @@
 const { join } = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
   mode: 'development',
   entry: "./src/index.js", //入口路径
@@ -13,6 +14,7 @@ module.exports = {
       template: "./public/index.html",
       filename: "index.html",
     }),
+    new VueLoaderPlugin()
   ],
   devServer: {
     port: 3000, // 端口号
@@ -46,6 +48,10 @@ module.exports = {
       test: /\.js$/,
      
       use:['babel-loader']
+  },
+  {
+    test: /\.vue$/,
+    loader: 'vue-loader'
   }
     ]
   }

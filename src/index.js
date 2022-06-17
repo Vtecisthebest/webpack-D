@@ -22,3 +22,4 @@ const fn =() => {
     console.log('你好')
   }
   console.log(fn);
+  import App from "./App.vue"
