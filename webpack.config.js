@@ -1,7 +1,7 @@
 const { join } = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
-    mode:'development',
+  mode: 'development',
   entry: "./src/index.js", //入口路径
   output: {
     path: join(__dirname, "lib"), //出口路径
@@ -17,5 +17,17 @@ module.exports = {
   devServer: {
     port: 3000, // 端口号
     open: true
+  },
+  module: {
+    rules: [ // loader的规则
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", 'less-loader']
+      }
+    ]
   }
 }
